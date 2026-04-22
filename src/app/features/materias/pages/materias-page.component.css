@@ -1,0 +1,14 @@
+.page-container {
+  padding: 24px;
+}
+
+h1 {
+  color: #0a4a4f;
+  margin-bottom: 16px;
+  font-size: 32px;
+}
+
+p {
+  color: #666;
+  font-size: 16px;
+}

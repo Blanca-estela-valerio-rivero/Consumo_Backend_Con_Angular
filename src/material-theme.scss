@@ -1,17 +1,53 @@
+// Custom Dark Teal Theme for School Manager
 // Include theming for Angular Material with `mat.theme()`.
-// This Sass mixin will define CSS variables that are used for styling Angular Material
-// components according to the Material 3 design spec.
-// Learn more about theming and how to use it for your application's
-// custom components at https://material.angular.dev/guide/theming
 @use '@angular/material' as mat;
+@use 'sass:map';
+
+// Define Dark Teal custom palette
+$dark-teal-palette: (
+  0: #000000,
+  10: #000b0c,
+  20: #073638,
+  25: #0a4a4f,
+  30: #0d5e66,
+  35: #10727d,
+  40: #148795,
+  50: #1abc9c,
+  60: #35d9c8,
+  70: #52f1dd,
+  80: #72fff0,
+  90: #a1fffb,
+  95: #d0fffd,
+  99: #f7ffff,
+  100: #ffffff,
+);
+
+// Define neutral teal palette
+$neutral-teal-palette: (
+  0: #000000,
+  10: #0a0f10,
+  20: #151b1c,
+  25: #1a2021,
+  30: #212829,
+  35: #293031,
+  40: #313839,
+  50: #4a5051,
+  60: #64696a,
+  70: #7f8384,
+  80: #9a9e9f,
+  90: #b5babb,
+  95: #c9cecc,
+  99: #f7fbf9,
+  100: #ffffff,
+);
 
 html {
   height: 100%;
   @include mat.theme(
     (
       color: (
-        primary: mat.$azure-palette,
-        tertiary: mat.$blue-palette,
+        primary: $dark-teal-palette,
+        tertiary: $neutral-teal-palette,
       ),
       typography: Roboto,
       density: 0,
@@ -20,19 +56,49 @@ html {
 }
 
 body {
-  // Default the application to a light color theme. This can be changed to
-  // `dark` to enable the dark color theme, or to `light dark` to defer to the
-  // user's system settings.
+  // Set to light color scheme
   color-scheme: light;
 
-  // Set a default background, font and text colors for the application using
-  // Angular Material's system-level CSS variables. Learn more about these
-  // variables at https://material.angular.dev/guide/system-variables
-  background-color: var(--mat-sys-surface);
-  color: var(--mat-sys-on-surface);
-  font: var(--mat-sys-body-medium);
-
-  // Reset the user agent margin.
+  // Set a default background and text colors for the application
+  // using Angular Material's system-level CSS variables
+  background-color: #f5f5f5;
+  color: #0a4a4f;
   margin: 0;
-  height: 100%;
+  padding: 0;
 }
+
+// Custom Material component overrides for Dark Teal theme
+.mat-mdc-sidenav-container {
+  background-color: #f5f5f5;
+}
+
+.mat-mdc-list-item {
+  &.mat-mdc-list-item-active {
+    background-color: #1abc9c;
+    color: white;
+
+    .mat-icon {
+      color: white;
+    }
+  }
+}
+
+// Scrollbar styling
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0a4a4f;
+  border-radius: 4px;
+
+  &:hover {
+    background: #073638;
+  }
+}
+
